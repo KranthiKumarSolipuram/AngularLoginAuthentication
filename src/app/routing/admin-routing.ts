@@ -1,1 +1,3 @@
-export const ADMIN_ROUTES = [];
+export const ADMIN_ROUTES = [
+    {path:'',loadChildren: () => import("../admin/admin.module").then (x => x.AdminModule)}
+];

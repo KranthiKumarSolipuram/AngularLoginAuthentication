@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 // import { AutenticationLayoutComponent } from './authentiction/autentication-layout/autentication-layout.component';
 import { AuthenticationLayoutComponent } from './layouts/authentication-layout/authentication-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
