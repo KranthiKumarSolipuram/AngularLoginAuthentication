@@ -1,4 +1,161 @@
-<p>signup works!</p>
-<br>
-
-Existing User <a [routerLink]="['/admin']">Login</a> Here
+<div class="container vh-100">
+  <div class="row h-100">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <div class="container">
+        <h1 class="text-center">Register</h1>
+        <form id="registerForm" name="signup" #signup="ngForm" (ngSubmit)="signup.valid && register(signup)">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="registerUsername"
+              name="username"
+              placeholder="Enter your username"
+              [(ngModel)]="registerUser.username"
+              #username="ngModel"
+              required
+            />
+            <small *ngIf="(username.touched && username.invalid) || (username.invalid && signup.submitted)">User Name is Mandatory</small>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="registerEmail"
+              class="form-control"
+              id="email"
+              name="email"
+              #email="ngModel"
+              placeholder="Enter your email"
+              [(ngModel)]="registerUser.email"
+              required
+            />
+            <small *ngIf="(email.touched && email.invalid) || (email.invalid && signup.submitted)">Email is Mandatory</small>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              #password="ngModel"
+              placeholder="Enter your password"
+              [(ngModel)]="registerUser.password"
+              required
+            />
+            <small *ngIf="(password.touched && password.invalid) || (password.invalid && signup.submitted)">Password is Mandatory</small>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              name="phone"
+              #phone="ngModel"
+              placeholder="Enter your phone number"
+              [(ngModel)]="registerUser.phone"
+              required
+            />
+            <small *ngIf="(phone.touched && phone.invalid) || (phone.invalid && signup.submitted)">Phone is Mandatory</small>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstname"
+              name="firstname"
+              
+              placeholder="Enter your first name"
+              
+            />
+            <!-- <small *ngIf="(firstname.touched && firstname.invalid) || (firstname.invalid && signup.submitted)">First Name is Mandatory</small> -->
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              placeholder="Enter your last name"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="city">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              placeholder="Enter your city"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input
+              type="text"
+              class="form-control"
+              id="street"
+              placeholder="Enter your street"
+             
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="number">Street Number</label>
+            <input
+              type="number"
+              class="form-control"
+              id="number"
+              placeholder="Enter your street number"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="zipcode">Zipcode</label>
+            <input
+              type="text"
+              class="form-control"
+              id="zipcode"
+              placeholder="Enter your zipcode"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="latitude">Latitude</label>
+            <input
+              type="text"
+              class="form-control"
+              id="latitude"
+              placeholder="Enter your latitude"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="longitude">Longitude</label>
+            <input
+              type="text"
+              class="form-control"
+              id="longitude"
+              placeholder="Enter your longitude"
+            />
+          </div>
+          <br />
+         
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <p class="text-center">
+          Existing User <a [routerLink]="['/admin']">Login</a> Here
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,38 @@
-<p>login works!</p>
-<br>
+<div class="container vh-100">
+  <div class="row h-100">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <div class="container">
+        <h1 class="text-center">Login</h1>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
 
-New User <a [routerLink]="['/signup']">SignUp</a> Here
+        <p class="text-center">
+          New User <a [routerLink]="['/signup']">Register</a> Here
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
