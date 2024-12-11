@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from 'src/app/services/http.service';
+// import { HttpService } from 'src/app/services/http.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit{
 
     console.log('Login Data:', this.loginForm.value);
   }
-  
+
     public loginMethod(){
       //Here we will specify the url
     }

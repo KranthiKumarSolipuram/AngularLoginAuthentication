@@ -50,6 +50,24 @@
           <br />
 
           <div class="form-group">
+            <label for="confirmPassword">Retype Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              placeholder="Confirm your password"
+            />
+            <small *ngIf="(submitted || signupForm.get('confirmPassword')?.touched) && signupForm.get('confirmPassword')?.invalid">
+              Password is mandatory
+            </small>
+            <small *ngIf="(submitted || signupForm.get('confirmPassword')?.touched) && signupForm.hasError('passwordsMismatch')">
+              Passwords do not match
+            </small>
+          </div>
+          <br />
+
+          <div class="form-group">
             <label for="phone">Phone</label>
             <input
               type="text"
