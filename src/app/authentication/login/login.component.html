@@ -3,34 +3,42 @@
     <div class="col-12 d-flex justify-content-center align-items-center">
       <div class="container">
         <h1 class="text-center">Login</h1>
-        <form id="loginForm">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="form-group">
             <label for="username">Username</label>
             <input
               type="text"
               class="form-control"
               id="username"
+              formControlName="username"
               placeholder="Enter your username"
-              required
             />
+            <small *ngIf="(submitted || loginForm.get('username')?.touched) && loginForm.get('username')?.invalid">
+              Username is mandatory
+            </small>
           </div>
           <br />
+
           <div class="form-group">
             <label for="password">Password</label>
             <input
               type="password"
               class="form-control"
               id="password"
+              formControlName="password"
               placeholder="Enter your password"
-              required
             />
+            <small *ngIf="(submitted || loginForm.get('password')?.touched) && loginForm.get('password')?.invalid">
+              Password is mandatory
+            </small>
           </div>
           <br />
+
           <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
 
         <p class="text-center">
-          New User <a [routerLink]="['/signup']">Register</a> Here
+          New User? <a [routerLink]="['/signup']">Register</a> Here
         </p>
       </div>
     </div>

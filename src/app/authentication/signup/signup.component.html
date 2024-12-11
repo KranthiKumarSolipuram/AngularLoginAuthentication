@@ -3,157 +3,204 @@
     <div class="col-12 d-flex justify-content-center align-items-center">
       <div class="container">
         <h1 class="text-center">Register</h1>
-        <form id="registerForm" name="signup" #signup="ngForm" (ngSubmit)="signup.valid && register(signup)">
+        <form [formGroup]="signupForm" (ngSubmit)="register()">
           <div class="form-group">
             <label for="username">Username</label>
             <input
               type="text"
               class="form-control"
               id="registerUsername"
-              name="username"
+              formControlName="username"
               placeholder="Enter your username"
-              [(ngModel)]="registerUser.username"
-              #username="ngModel"
-              required
             />
-            <small *ngIf="(username.touched && username.invalid) || (username.invalid && signup.submitted)">User Name is Mandatory</small>
+            <small *ngIf="(submitted || signupForm.get('username')?.touched) && signupForm.get('username')?.invalid">
+              Username is mandatory
+            </small>
           </div>
           <br />
+
           <div class="form-group">
             <label for="email">Email</label>
             <input
-              type="registerEmail"
+              type="email"
               class="form-control"
               id="email"
-              name="email"
-              #email="ngModel"
+              formControlName="email"
               placeholder="Enter your email"
-              [(ngModel)]="registerUser.email"
-              required
             />
-            <small *ngIf="(email.touched && email.invalid) || (email.invalid && signup.submitted)">Email is Mandatory</small>
+            <small *ngIf="(submitted || signupForm.get('email')?.touched) && signupForm.get('email')?.invalid">
+              Valid Email is mandatory
+            </small>
           </div>
           <br />
+
           <div class="form-group">
             <label for="password">Password</label>
             <input
               type="password"
               class="form-control"
               id="password"
-              name="password"
-              #password="ngModel"
+              formControlName="password"
               placeholder="Enter your password"
-              [(ngModel)]="registerUser.password"
-              required
             />
-            <small *ngIf="(password.touched && password.invalid) || (password.invalid && signup.submitted)">Password is Mandatory</small>
+            <small *ngIf="(submitted || signupForm.get('password')?.touched) && signupForm.get('password')?.invalid">
+              Password is mandatory
+            </small>
           </div>
           <br />
+
           <div class="form-group">
             <label for="phone">Phone</label>
             <input
               type="text"
               class="form-control"
               id="phone"
-              name="phone"
-              #phone="ngModel"
+              formControlName="phone"
               placeholder="Enter your phone number"
-              [(ngModel)]="registerUser.phone"
-              required
             />
-            <small *ngIf="(phone.touched && phone.invalid) || (phone.invalid && signup.submitted)">Phone is Mandatory</small>
+            <small *ngIf="(submitted || signupForm.get('phone')?.touched) && signupForm.get('phone')?.invalid">
+              Phone is mandatory
+            </small>
           </div>
           <br />
-          <div class="form-group">
-            <label for="firstname">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="firstname"
-              name="firstname"
-              
-              placeholder="Enter your first name"
-              
-            />
-            <!-- <small *ngIf="(firstname.touched && firstname.invalid) || (firstname.invalid && signup.submitted)">First Name is Mandatory</small> -->
+
+          <div formGroupName="name">
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                formControlName="firstname"
+                placeholder="Enter your first name"
+              />
+              <small
+                *ngIf="(submitted || signupForm.get('name.firstname')?.touched) && signupForm.get('name.firstname')?.invalid"
+              >
+                First name is mandatory
+              </small>
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                formControlName="lastname"
+                placeholder="Enter your last name"
+              />
+              <small
+                *ngIf="(submitted || signupForm.get('name.lastname')?.touched) && signupForm.get('name.lastname')?.invalid"
+              >
+                Last name is mandatory
+              </small>
+            </div>
           </div>
           <br />
-          <div class="form-group">
-            <label for="lastname">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="lastname"
-              placeholder="Enter your last name"
-            />
+
+          <div formGroupName="address">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                formControlName="city"
+                placeholder="Enter your city"
+              />
+              <small *ngIf="(submitted || signupForm.get('address.city')?.touched) && signupForm.get('address.city')?.invalid">
+                City is mandatory
+              </small>
+            </div>
+            <br />
+
+            <div class="form-group">
+              <label for="street">Street</label>
+              <input
+                type="text"
+                class="form-control"
+                id="street"
+                formControlName="street"
+                placeholder="Enter your street"
+              />
+              <small *ngIf="(submitted || signupForm.get('address.street')?.touched) && signupForm.get('address.street')?.invalid">
+                Street is mandatory
+              </small>
+            </div>
+            <br />
+
+            <div class="form-group">
+              <label for="number">Number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="number"
+                formControlName="number"
+                placeholder="Enter your house number"
+              />
+              <small *ngIf="(submitted || signupForm.get('address.number')?.touched) && signupForm.get('address.number')?.invalid">
+                House number is mandatory
+              </small>
+            </div>
+            <br />
+
+            <div class="form-group">
+              <label for="zipcode">Zip Code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="zipcode"
+                formControlName="zipcode"
+                placeholder="Enter your zip code"
+              />
+              <small *ngIf="(submitted || signupForm.get('address.zipcode')?.touched) && signupForm.get('address.zipcode')?.invalid">
+                Zip code is mandatory
+              </small>
+            </div>
+            <br />
+
+            <div formGroupName="geolocation">
+              <div class="form-group">
+                <label for="lat">Latitude</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lat"
+                  formControlName="lat"
+                  placeholder="Enter latitude"
+                />
+                <small
+                  *ngIf="(submitted || signupForm.get('address.geolocation.lat')?.touched) && signupForm.get('address.geolocation.lat')?.invalid"
+                >
+                  Latitude is mandatory
+                </small>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <label for="long">Longitude</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="long"
+                  formControlName="long"
+                  placeholder="Enter longitude"
+                />
+                <small
+                  *ngIf="(submitted || signupForm.get('address.geolocation.long')?.touched) && signupForm.get('address.geolocation.long')?.invalid"
+                >
+                  Longitude is mandatory
+                </small>
+              </div>
+            </div>
           </div>
           <br />
-          <div class="form-group">
-            <label for="city">City</label>
-            <input
-              type="text"
-              class="form-control"
-              id="city"
-              placeholder="Enter your city"
-            />
-          </div>
-          <br />
-          <div class="form-group">
-            <label for="street">Street</label>
-            <input
-              type="text"
-              class="form-control"
-              id="street"
-              placeholder="Enter your street"
-             
-            />
-          </div>
-          <br />
-          <div class="form-group">
-            <label for="number">Street Number</label>
-            <input
-              type="number"
-              class="form-control"
-              id="number"
-              placeholder="Enter your street number"
-            />
-          </div>
-          <br />
-          <div class="form-group">
-            <label for="zipcode">Zipcode</label>
-            <input
-              type="text"
-              class="form-control"
-              id="zipcode"
-              placeholder="Enter your zipcode"
-            />
-          </div>
-          <br />
-          <div class="form-group">
-            <label for="latitude">Latitude</label>
-            <input
-              type="text"
-              class="form-control"
-              id="latitude"
-              placeholder="Enter your latitude"
-            />
-          </div>
-          <br />
-          <div class="form-group">
-            <label for="longitude">Longitude</label>
-            <input
-              type="text"
-              class="form-control"
-              id="longitude"
-              placeholder="Enter your longitude"
-            />
-          </div>
-          <br />
-         
+
           <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
         <p class="text-center">
-          Existing User <a [routerLink]="['/admin']">Login</a> Here
+          Existing User? <a [routerLink]="['/admin']">Login</a> Here
         </p>
       </div>
     </div>
