@@ -43,3 +43,8 @@ export interface IRegister{
     },
     phone: string
 }
+
+export interface ILogin{
+    username :string,
+    password : string
+}
