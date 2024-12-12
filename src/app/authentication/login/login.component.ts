@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit,OnDestroy{
         if(this.returnUrl)
           this.router.navigate([this.returnUrl])
         else
-        this.router.navigate(["/admin/employee"])
+        this.router.navigate(["/admin/products"])
       }
       else{
         console.log(data.error);
@@ -61,7 +61,9 @@ export class LoginComponent implements OnInit,OnDestroy{
   }
 
   ngOnDestroy(): void {
-      
+      if(this.subscription){
+        this.subscription.unsubscribe();
+      }
   }
 
     public loginMethod(){
