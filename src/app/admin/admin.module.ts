@@ -7,7 +7,7 @@ import { DepartmentComponent } from './department/department.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductComponent } from './product/product.component';
-// import { ProductComponent } from './product/product.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -15,13 +15,13 @@ import { ProductComponent } from './product/product.component';
     EmployeeComponent,
     DepartmentComponent,
     AdminDashboardComponent,
-    // ProductComponent
     ProductComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    MatProgressBarModule
   ]
 })
 export class AdminModule { }

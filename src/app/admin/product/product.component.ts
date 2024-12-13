@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   products: IProduct[] = []; // Initialize with an empty array
   subscription!: Subscription;
 //   userId !: string | null;
+  isLoading = false;
 
   constructor(private productService: HttpService,private activatedRoute: ActivatedRoute) {}
 
@@ -38,6 +39,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     //     url ="https://fakestoreapi.com/products"
     // }
     // Make the API call to fetch products
+    this.isLoading = true;
     this.subscription = this.productService.getData("https://fakestoreapi.com/products").subscribe({
         next :(data : any) =>{
             // this.products=data as IProduct[]; 
@@ -47,9 +49,11 @@ export class ProductComponent implements OnInit, OnDestroy {
               } else {
                 this.products = [data] as IProduct[]; // Wrap single object in an array
               }
+              this.isLoading = false;
       },
       error: (error) => {
         console.error("Error fetching products:", error);
+        this.isLoading = false;
       }
     });
   }
