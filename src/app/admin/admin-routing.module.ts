@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { EmployeeComponent } from './employee/employee.component';
 import { DepartmentComponent } from './department/department.component';
 import { ProductComponent } from './product/product.component';
+import { HelpComponent } from './help/help.component';
 // import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
@@ -11,7 +12,9 @@ const routes: Routes = [
   {path:'employee',component:EmployeeComponent},
   // {path:'products',component:},
   {path: 'products' , component : ProductComponent},
-  {path : 'department',component:DepartmentComponent}
+  {path : 'department',component:DepartmentComponent},
+  {path : 'help', component:HelpComponent, outlet:'testOutlet'}
+  // {path:'help', component:HelpComponent}
 ];
 
 @NgModule({

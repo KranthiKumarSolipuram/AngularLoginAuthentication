@@ -6,10 +6,12 @@ import { AUTHENTICATION_ROUTES } from './routing/authetication-routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ADMIN_ROUTES } from './routing/admin-routing';
 import { AuthGuard } from './guards/auth.guard';
+import { HelpComponent } from './admin/help/help.component';
 
 const routes: Routes = [
   {path:'', component:AuthenticationLayoutComponent, children: AUTHENTICATION_ROUTES},
-  {path:'admin', component:AdminLayoutComponent, children: ADMIN_ROUTES, canActivate: [AuthGuard], canDeactivate: [AuthGuard]},
+  {path:'admin', component:AdminLayoutComponent, children: ADMIN_ROUTES, canActivate: [AuthGuard], canDeactivate: [AuthGuard], data: ["admin"]},
+  {path: 'help',component:HelpComponent,outlet:'testOutlet'}
 ];
 
 @NgModule({

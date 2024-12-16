@@ -2,6 +2,8 @@
     <a [routerLink]="['/']">Dashboard</a> &nbsp; &nbsp; | &nbsp; &nbsp;
     <a [routerLink]="['./products']"> Products</a> &nbsp; &nbsp; | &nbsp; &nbsp;
     <a [routerLink]="['./department']"> Department</a> &nbsp; &nbsp; | &nbsp; &nbsp;
+    <a [routerLink]="[{outlets : {'testOutlet' :['help']}}]">Help</a> &nbsp; &nbsp; | &nbsp; &nbsp;
+    <!-- <a [routerLink]="['./help']">Help</a> &nbsp; &nbsp; | &nbsp; &nbsp; -->
     <a [routerLink]="[]" (click)="logout()">Logout</a>
 </div>
 
